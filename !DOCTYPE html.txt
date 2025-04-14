@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card for Andy</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: white;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: red;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.5;
+            max-width: 80%;
+            margin: 20px auto;
+        }
+
+        .message {
+            margin-top: 50px;
+            font-size: 1.5em;
+            color: red;
+            text-align: center;
+            padding: 0 10%;
+        }
+
+        .cake {
+            margin-top: 50px;
+            width: 150px;
+            height: 150px;
+            background: #f4a300;
+            border-radius: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .cake::before {
+            content: "";
+            width: 30px;
+            height: 30px;
+            background: #f1c27d;
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+        }
+
+        .candle {
+            width: 10px;
+            height: 50px;
+            background: yellow;
+            position: absolute;
+            top: -65px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+            opacity: 0;
+        }
+
+        .candle.flame {
+            width: 20px;
+            height: 20px;
+            background: #ff4500;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            animation: flameAnim 1s infinite alternate;
+        }
+
+        @keyframes flameAnim {
+            0% {
+                height: 20px;
+                opacity: 0.8;
+            }
+            100% {
+                height: 25px;
+                opacity: 1;
+            }
+        }
+
+        .heart, .star {
+            font-size: 2em;
+            color: red;
+            position: absolute;
+        }
+
+        .heart {
+            left: 20px;
+            top: 20px;
+        }
+
+        .star {
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .moon {
+            font-size: 3em;
+            color: yellow;
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px red; }
+            100% { text-shadow: 0 0 20px red, 0 0 30px red; }
+        }
+
+        .glow {
+            animation: glow 1s infinite alternate;
+        }
+    </style>
+</head>
+<body>
+    <h1>Selamat Ulang Tahun, Andy!</h1>
+    <div class="message">
+        <p>Selamat ulang tahun..YEYY!<br>
+           Aku cuma pengen bilang, kamu itu orang yang luar biasa lucu, entertaining dan paling sabarr yang pernah kukenal. Mungkin kamu nggak selalu sadar, tapi kamu buat aku nyaman ngobrol sama kamu. Aku sering mikir, kalau aku ga kenal kamu hidup ku bakal bosenin dan flat aja.<br>
+           Semoga tahun ini menjadi tahun yang penuh dengan kebahagiaan. Selamat ulang tahun!! Terima kasih udah jadi kamu yang sesungguhnya, dan semoga hari-harimu selalu dipenuhi dengan kebahagiaan yang sama besar seperti yang kamu bawa ke hidup orang-orang di sekitar kamu termasuk aku.
+        </p>
+    </div>
+
+    <div class="cake">
+        <div class="candle" id="candle"></div>
+        <div class="heart glow">❤️</div>
+        <div class="star glow">⭐</div>
+        <div class="moon">🌙</div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById("candle").style.opacity = 1;
+                var flame = document.createElement("div");
+                flame.classList.add("flame");
+                document.getElementById("candle").appendChild(flame);
+            }, 1000);  // Wait 1 second before showing the candle light up
+        }
+    </script>
+</body>
+</html>
